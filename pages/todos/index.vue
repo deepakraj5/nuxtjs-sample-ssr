@@ -1,9 +1,9 @@
 <script setup lang="ts">
     const counter = useState('counter', () => 0);
 
-    const todos = useTodoStore();
+    const todoStore = useTodoStore();
 
-    await callOnce(todos.fetch)
+    await callOnce(todoStore.fetchTodos);
 
 </script>
 
@@ -14,7 +14,7 @@
 
     <button @click="counter++">click</button>
 
-    <li v-for="todo in todos">
-        <!-- {{ todo. }} -->
+    <li v-for="todo in todoStore.todos">
+        {{ todo.title }}
     </li>
 </template>
